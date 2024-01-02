@@ -19,3 +19,8 @@
   color: white;
   display: block;
 }
+
+.font {
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(245, 170, 123);
+}

@@ -12,11 +12,14 @@ import {
 
 import { Email } from "@mui/icons-material";
 import { Instagram } from "@mui/icons-material";
+import AboutUsContent from "./AboutUs";
+
+import "./App.css";
 
 const pages = ["About Us", "Walks", "Track Your Walks", "Events", "Blog"];
 
 export const AppHeader = () => {
-  const [showData, setShowData] = useState(null);
+  const [selectedPage, setSelectedPage] = useState(null);
 
   const openInstagramLink = () => {
     window.open("https://www.instagram.com/mamawalks_/", "_blank");
@@ -29,7 +32,7 @@ export const AppHeader = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: "#F5AA7B" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#F8E0C5" }}>
         <Container>
           <Toolbar>
             <Toolbar
@@ -45,23 +48,30 @@ export const AppHeader = () => {
                 href="#app-bar-with-responsive-menu"
                 sx={{
                   mr: 2,
-                  fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
-                  color: "inherit",
+                  color: " rgb(245, 170, 123)",
+                  fontFamily: "kepler-std",
                   textDecoration: "none",
                 }}
               >
                 Mama Walks
               </Typography>
+
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
                   <Button
                     key={page}
                     onClick={() => {
-                      setShowData(true);
+                      setSelectedPage(page);
                     }}
-                    sx={{ my: 2, color: "white", display: "block" }}
+                    sx={{
+                      my: 2,
+                      fontFamily: "kepler-std",
+                      color: "#504043",
+                      display: "block",
+                      textTransform: "none",
+                    }}
                   >
                     {page}
                   </Button>
@@ -77,7 +87,7 @@ export const AppHeader = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      {showData && <div>AKAOHFHDFHSJDPJFSPODFKO</div>}
+      {selectedPage === "About Us" && <AboutUsContent />}
     </>
   );
 };
